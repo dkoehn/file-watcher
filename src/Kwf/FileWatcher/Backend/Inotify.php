@@ -58,8 +58,9 @@ class Inotify extends BackendAbstract
         $except = null;
         stream_select($read, $write, $except, 0);
         stream_set_blocking($this->_fd, 0);
-        $events = array();
         while (!$this->_stopped) {
+            $events = array();
+
             while ($inotifyEvents = inotify_read($this->_fd)) {
                 foreach ($inotifyEvents as $details) {
                     $file = $this->_watches[$details['wd']];

@@ -14,7 +14,6 @@ class Poll extends BackendAbstract
 
     public function start()
     {
-        $rounds = 0;
         $this->_files = $this->_findFiles();
         while (!$this->_stopped) {
             sleep(1);
@@ -22,6 +21,7 @@ class Poll extends BackendAbstract
             $events = array();
             foreach ($files as $file=>$fileData) {
                 if (!isset($this->_files[$file])) {
+                    $this->_files[$file] = $fileData;
                     $events[] = new CreateEvent($file);
                 } elseif ($this->_files[$file] != $fileData) {
                     $this->_files[$file] = $fileData;
