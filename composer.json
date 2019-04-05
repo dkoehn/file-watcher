@@ -5,9 +5,9 @@
     "license": "BSD-2-Clause",
     "type": "library",
     "require": {
-        "symfony/process": "^3.2",
-        "symfony/event-dispatcher": "^3.2",
-        "symfony/finder": "^3.2",
+        "symfony/process": "~2.6",
+        "symfony/event-dispatcher": "~2.6",
+        "symfony/finder": "~2.6",
         "psr/log": "~1.0"
     },
     "require-dev": {
